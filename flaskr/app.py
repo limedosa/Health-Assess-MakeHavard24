@@ -69,26 +69,40 @@ print("OpenAI response for recipes:)\n", response_text_recipe)
 # Establish a connection to the serial port.
 # Your serial connection setup
 
-# ser = serial.Serial('COM3', 9600, timeout=1)
+ser = serial.Serial('/dev/cu.usbmodem11301', 9600, timeout=1)
 
 data_buffer = []  # Initialize your data buffer
 
-# def read_from_serial():
-#     time.sleep(2)  # wait for the serial connection to initialize
-#     while True:
-#         if ser.in_waiting > 0:
-#             data = ser.readline().decode('utf-8').rstrip()
-#             data_json = {
-#                 "value": data,
-#                 "timestamp": datetime.now().timestamp()
-#             }
-#             data_buffer.append(data_json)
-#             print(data_json)  # Print the data received from Arduino
+def read_from_serial():
+    time.sleep(2)  # wait for the serial connection to initialize
+    while True:
+        try:
+            if ser.in_waiting > 0:
+                data = ser.readline().decode('utf-8').rstrip()
+                data_json = {
+                    "value": int(data),
+                    "timestamp": datetime.now().timestamp()
+                }
+                data_buffer.append(data_json)
+                # if there is data, write it to a .json file
+                
+                with open('./static/new_data.jsonl','w') as f:
+                    for index, entry in enumerate(data_buffer):
+                        json.dump(entry, f)
+                        f.write('\n')
+                        print(data_json)  # Print the data received from Arduino
 
-# # Start the serial reading in a background thread
-# thread = threading.Thread(target=read_from_serial)
-# thread.daemon = True  # Daemonize thread
-# thread.start()
+                        if index > 20:
+                            break
+        except:
+            pass
+            
+
+
+# Start the serial reading in a background thread
+thread = threading.Thread(target=read_from_serial)
+thread.daemon = True  # Daemonize thread
+thread.start()
 
 
 
@@ -141,7 +155,7 @@ def json_file_to_dict(file_path):
     data_dict = {}
 
     # Open the JSON file for reading
-    with open('./static/data.jsonl', 'r') as file:
+    with open('./static/new_data.jsonl', 'r') as file:
         # Iterate over each line in the file
         for line in file:
             # Parse the JSON object from the line
@@ -182,7 +196,11 @@ def averageHeartRate(listHeartRate):
     Returns:
         num: average
     """
-    return sum(listHeartRate)/len(listHeartRate)
+    # listHeartRate=[int(num) for num in listHeartRate]
+    if len(listHeartRate)>0:
+        return sum(listHeartRate)/len(listHeartRate)
+    else:
+        pass
 
 testingRate = averageHeartRate([2,2,2,2,2])
 
