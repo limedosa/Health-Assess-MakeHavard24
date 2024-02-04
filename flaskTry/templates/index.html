@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Rate Monitor</title>
+</head>
+<body>
+    <h1>Heart Rate Monitor</h1>
+    <img src="{{ url_for('static', filename='graph.png') }}" alt="Heart Rate Graph">
+    <button id="reloadButton">New Data Input</button>
+
+    <script>
+        // Add event listener to the reload button
+        document.getElementById('reloadButton').addEventListener('click', function() {
+            location.reload(); // Reload the page
+        });
+    </script>
+</body>
+</html>
