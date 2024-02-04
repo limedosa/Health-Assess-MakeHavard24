@@ -2,7 +2,7 @@ from flask_bootstrap import Bootstrap
 from flask import Flask, render_template, request
 from openai import OpenAI
 import os
-import serial
+from pyserial import serial
 import time
 import threading
 
@@ -53,7 +53,7 @@ print("Prompting openai with:\n", user_prompt)
 
 # Establish a connection to the serial port.
 # Your serial connection setup
-ser = serial.Serial('/dev/cu.usbmodem11301', 9600, timeout=1)
+ser = serial.Serial('COM3', 9600, timeout=1)
 
 data_buffer = []  # Initialize your data buffer
 
