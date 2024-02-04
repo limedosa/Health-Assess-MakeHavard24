@@ -33,7 +33,7 @@
                         <a class="nav-link" href="{{ url_for('recordsPage') }}">Records </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{ url_for('settingsPage') }}">Settings </a>
+                      <a class="nav-link" href="{{ url_for('recommendationsPage') }}">Recommendations </a>
                   </li>
                 </ul>
             </div>
@@ -64,13 +64,12 @@
             <a href="{{ url_for('newInputsPage') }}" class="btn">Get Started</a>
         <p>
           <br><br>
-          <h5>Heart Rate Analysis:</h5>
-            {{ response_text}}
+        
+
 
         </p>
 
-        <h4>Recipe Reccomendations:</h4>
-        {{response_text_recipe}}
+
 
         </div>
     </section>
