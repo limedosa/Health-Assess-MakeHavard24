@@ -27,13 +27,13 @@
                         <a class="nav-link" href="{{ url_for('homePage') }}">Home </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('newInputsPage') }}">New Input Page</a>
+                        <a class="nav-link" href="{{ url_for('newInputsPage') }}">New Input </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('recordsPage') }}">Records Page<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ url_for('recordsPage') }}">Records </span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{ url_for('settingsPage') }}">Settings Page</a>
+                      <a class="nav-link" href="{{ url_for('settingsPage') }}">Settings </a>
                   </li>
                 </ul>
             </div>
@@ -41,13 +41,22 @@
 
         <div class="jumbotron">
             <h1 class="display-4">
-          		{% if title %}
-          		  {{ title }}
-          		{% else %}
-          		  Default title
-          		{% endif %}
-	    </h1>
+                {% if title %}
+                  {{ title }}
+                {% else %}
+                  Default title
+                {% endif %}
+            </h1>
+
+
+
+        
         </div>
+        <footer>
+          <div class="container">
+              <p>&copy; 2024 HealthAssess. All rights reserved.</p>
+          </div>
+      </footer>
     </div>
 
     <!-- Optional JavaScript -->

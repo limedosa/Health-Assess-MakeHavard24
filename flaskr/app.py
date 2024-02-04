@@ -1,15 +1,16 @@
-from flask_bootstrap import Bootstrap4
-from flask import Flask, render_template
+from flask_bootstrap import Bootstrap
+from flask import Flask, render_template, request
+import requests
 
 app = Flask(__name__)
-bootstrap = Bootstrap4(app)
-
+bootstrap = Bootstrap(app)
 
 @app.route('/')
 def homePage():
     return render_template('index.html', title="Home")
 
-@app.route("/newInputs")
+
+@app.route("/newInputs", methods=['GET'])
 def newInputsPage():
     return render_template("newInputs.html", title="New Inputs")
 
@@ -20,7 +21,6 @@ def recordsPage():
 @app.route("/settings")
 def settingsPage():
     return render_template("settings.html", title="Settings")
-
 
 if __name__ == '__main__':
     app.run(debug=True)

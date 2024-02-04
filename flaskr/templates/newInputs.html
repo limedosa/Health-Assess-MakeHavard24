@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Navbar in Flask</title>
+    <title>HealthAssess</title>
 </head>
 
 <body>
@@ -24,16 +24,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ url_for('homePage') }}">Home </a>
+                        <a class="nav-link" href="{{ url_for('homePage') }}">Home </span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('newInputsPage') }}">New Input Page<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ url_for('newInputsPage') }}">New Input <span class="sr-only">(current)</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('recordsPage') }}">Records Page</a>
+                        <a class="nav-link" href="{{ url_for('recordsPage') }}">Records </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{ url_for('settingsPage') }}">Settings Page</a>
+                      <a class="nav-link" href="{{ url_for('settingsPage') }}">Settings </a>
                   </li>
                 </ul>
             </div>
@@ -48,7 +48,13 @@
           		{% endif %}
 	    </h1>
         </div>
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 HealthAssess. All rights reserved.</p>
+            </div>
+        </footer>
     </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

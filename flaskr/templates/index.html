@@ -27,13 +27,13 @@
                         <a class="nav-link" href="{{ url_for('homePage') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('newInputsPage') }}">New Input Page</a>
+                        <a class="nav-link" href="{{ url_for('newInputsPage') }}">New Input </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('recordsPage') }}">Records Page</a>
+                        <a class="nav-link" href="{{ url_for('recordsPage') }}">Records </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{ url_for('settingsPage') }}">Settings Page</a>
+                      <a class="nav-link" href="{{ url_for('settingsPage') }}">Settings </a>
                   </li>
                 </ul>
             </div>
@@ -47,7 +47,30 @@
           		  Default title
           		{% endif %}
 	    </h1>
+      <h2>Welcome to HealthAssess!</h2>
+
+      <h5>iudeid</h5>
+      <section class="main-content">
+        <div class="container">
+            <h2>About HealthAssess</h2>
+            <p>HealthAssess is a comprehensive tracking app designed to help you track your health. Whether you're focused on fitness, nutrition, or overall wellness, HealthAssess provides the tools you need to succeed.</p>
+            <p>Key features include:</p>
+            <ul>
+                <li>Customizable activity tracking</li>
+                <li>Nutritional Meal ideas</li>
+                <li>Exercise logging and progress tracking</li>
+            </ul>
+            <a href="{{ url_for('newInputsPage') }}" class="btn">Get Started</a>
         </div>
+    </section>
+
+
+        </div>
+        <footer>
+          <div class="container">
+              <p>&copy; 2024 HealthAssess. All rights reserved.</p>
+          </div>
+      </footer>
     </div>
 
     <!-- Optional JavaScript -->
