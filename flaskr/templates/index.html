@@ -48,10 +48,9 @@
           		  Default title
           		{% endif %}
 	    </h1>
-<<<<<<< HEAD
       <h2>Welcome to HealthAssess!</h2>
+<br>
 
-      <h5>iudeid</h5>
       <section class="main-content">
         <div class="container">
             <h2>About HealthAssess</h2>
@@ -63,13 +62,16 @@
                 <li>Exercise logging and progress tracking</li>
             </ul>
             <a href="{{ url_for('newInputsPage') }}" class="btn">Get Started</a>
-=======
-        <P>
+        <p>
+          <br><br>
+          <h5>Heart Rate Analysis:</h5>
             {{ response_text}}
 
+        </p>
 
-        </P>
->>>>>>> yu
+        <h4>Recipe Reccomendations:</h4>
+        {{response_text_recipe}}
+
         </div>
     </section>
 
