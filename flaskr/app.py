@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 from openai import OpenAI
 import os
 
-OPENAI_API_KEY='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'
+OPENAI_API_KEY='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'
 openai_client = OpenAI(api_key=OPENAI_API_KEY)
 
 # construct a prompt
