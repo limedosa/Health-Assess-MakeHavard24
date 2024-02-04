@@ -1,10 +1,12 @@
-from flask_bootstrap import Bootstrap4
+from flask_bootstrap import Bootstrap
 from flask import Flask, render_template, request
 from openai import OpenAI
 import os
+import serial
+import time
 
-OPENAI_API_KEY='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'
-openai_client = OpenAI(api_key=OPENAI_API_KEY)
+
+openai_client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
 # construct a prompt
 user_prompt = f"You are a health assessment assistant. Given the the heartbeat data: 70 bmp and the records, provide insights and advise for the user in the format: x beats per minute falls within (normal/not normal date), average heart rate for people in age range given, advice:"
@@ -42,9 +44,26 @@ response_text_recipe = openai_response_recipe.choices[0].message.content
 
 print("OpenAI response for recipes:)\n", response_text_recipe)
 
+######### read data from sensor
+
+# Establish a connection to the serial port.
+ser = serial.Serial('/dev/cu.usbmodem11301', 9600, timeout=1)
+time.sleep(2)  # wait for the serial connection to initialize
+
+try:
+    while True:
+        if ser.in_waiting > 0:
+            data = ser.readline().decode('utf-8').rstrip()
+            print(data)  # Print the data received from Arduino
+except KeyboardInterrupt:
+    print("Program exited")
+finally:
+    ser.close()  # Always close the serial connection when finished
+
+
 
 app = Flask(__name__)
-bootstrap = Bootstrap4(app)
+bootstrap = Bootstrap(app)
 
 @app.route('/')
 def homePage():
