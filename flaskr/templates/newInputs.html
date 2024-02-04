@@ -47,9 +47,12 @@
           		  Default title
           		{% endif %}
 	    </h1>
-        <h3>Add a new input</h3>
+        <!-- <h3>Add a new input</h3> -->
         </div>
-        {{ responseInputAnalysis}}
+
+        <img src="{{ url_for('static', filename='graph.png') }}" alt="Heart Rate Graph">
+        <br>
+            {{ responseInputAnalysis}}
     </div>
 
 
