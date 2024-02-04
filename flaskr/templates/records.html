@@ -30,16 +30,17 @@
                         <a class="nav-link" href="{{ url_for('newInputsPage') }}">New Input </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('recordsPage') }}">Records </span></a>
+                        <a class="nav-link" href="{{ url_for('recordsPage') }}">Records <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{ url_for('settingsPage') }}">Settings </a>
+                      <a class="nav-link" href="{{ url_for('recommendationsPage') }}">Recommendations </a>
                   </li>
                 </ul>
             </div>
         </nav>
 
         <div class="jumbotron">
+           
             <h1 class="display-4">
                 {% if title %}
                   {{ title }}
@@ -47,7 +48,10 @@
                   Default title
                 {% endif %}
             </h1>
+            <br><br>
 
+            <h5>Heart Rate Analysis:</h5>
+            <p>{{ response_text}}</p>
 
 
         
