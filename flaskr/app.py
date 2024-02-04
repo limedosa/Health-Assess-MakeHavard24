@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 from openai import OpenAI
 import os
 
-OPENAI_API_KEY='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'
+OPENAI_API_KEY='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'
 openai_client = OpenAI(api_key=OPENAI_API_KEY)
 
 # construct a prompt
@@ -42,25 +42,26 @@ response_text_recipe = openai_response_recipe.choices[0].message.content
 
 print("OpenAI response for recipes:)\n", response_text_recipe)
 
+
 app = Flask(__name__)
 bootstrap = Bootstrap4(app)
 
 @app.route('/')
 def homePage():
-    return render_template('index.html', title="Home", response_text = response_text, response_text_recipe=response_text_recipe)
+    return render_template('index.html', title="Home", response_text = response_text)
 
 
 @app.route("/newInputs", methods=['GET'])
 def newInputsPage():
-    return render_template("newInputs.html", title="New Inputs")
+    return render_template("newInputs.html", title="New Input")
 
 @app.route("/records")
 def recordsPage():
-    return render_template("records.html", title="Records")
+    return render_template("records.html", title="Records", response_text=response_text)
 
-@app.route("/settings")
-def settingsPage():
-    return render_template("settings.html", title="Settings")
+@app.route("/recommendations")
+def recommendationsPage():
+    return render_template("recommendations.html", title="Recommendations",  response_text_recipe=response_text_recipe)
 
 if __name__ == '__main__':
     app.run(debug=True)
